@@ -1,25 +1,7 @@
 # WEC-Mamba: Wavelet-Based Edge Compensation Mamba for Joint  Low-Light Image Enhancement and Deblurring
 ## Abstract
-Joint low-light image enhancement and deblurring is a challenging image restoration task, since
-insufficient illumination and motion blur are often strongly coupled in real-world scenes and jointly
-degrade structural and textural information. Although existing methods have achieved promising
-progress, they still struggle to recover fine details, especially high-frequency components that are
-severely attenuated under coupled degradations. As a result, restored images often exhibit blurred
-edges, over-smoothed textures, and incomplete local structures.
-To address this issue, we propose WEC-Mamba, a unified framework for joint low-light image
-enhancement and deblurring. The proposed network is built upon a dedicated Local Enhanced
-Mamba Block, which consists of a Wavelet-Enhanced State Space Module (WESM) and a
-Multi-Scale Channel Refinement Module (MSCR). Specifically, WESM integrates wavelet-based
-local detail compensation into state space modeling to better preserve and recover high-frequency
-information suppressed by coupled low-light and blur degradations, while MSCR further refines
-degraded structures through multi-scale context aggregation and adaptive channel modulation. In
-addition, we introduce a frequency-domain loss and adopt a two-stage training strategy to further
-improve restoration quality.
-Extensive experiments on synthetic and real-world low-light blurry datasets, as well as standard
-low-light enhancement benchmarks, demonstrate that the proposed methodachieves strong qualitative
-performance and competitive quantitative results compared with existing state-of-the-art methods.
-These results suggest the effectiveness of the proposed design for handling complex coupled degrada
-tions in low-light image restoration. The code is available at https://github.com/ZehuaChenLab/WEC-Mamba.
+Images captured in low-light environments often suffer from insufficient illumination and motion blur simultaneously, resulting in degraded visibility, blurred boundaries, and missing texture details. Existing cascaded or unified restoration methods remain limited in recovering coherent structures under such coupled degradations, particularly when illumination-related and blur-related information are entangled in feature representations. In this paper, we propose a compact Degradation-Decoupled Blur Restoration Network (DBR-Net) for joint low-light image enhancement and deblurring. DBR-Net adopts an encoder--decoder architecture that performs degradation-oriented feature modeling. In the encoder, a Fourier Illumination Enhancement Block (FIEB) employs Fourier amplitude similarity-guided modulation to enhance illumination-restoration-related representations. In the decoder, a Wavelet Structure Restoration Block (WSRB) integrates directional wavelet-domain guidance with state space modeling to strengthen the reconstruction of blur-degraded edges and textures. In addition, we introduce a frequency-domain loss to constrain the recovery of degradation-decoupled information and design a progressive two-stage training strategy that first establishes stable illumination and structural restoration capabilities and then refines the final output. Extensive experiments demonstrate the effectiveness of DBR-Net. On the synthetic LOL-Blur dataset, our method achieves 31.96\,dB PSNR, 0.912 SSIM, and 0.172 LPIPS, outperforming existing comparison methods across all three metrics. Without additional fine-tuning, DBR-Net also exhibits competitive generalization on the Real-LOL-Blur dataset and performs favorably on standard low-light enhancement benchmarks. With only 3.86M parameters, DBR-Net provides an effective and parameter-efficient solution for restoring low-light blurry images.
+The code is available at \url{https://github.com/ZehuaChenLab/DBR-Net}.
 
 ## Quantitative comparisons results on the LOL-Blur dataset.
 ![demo](./Figure/Fig1.png)
